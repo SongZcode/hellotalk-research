@@ -7,7 +7,7 @@ import re
 import sys
 import zipfile
 
-APK = pathlib.Path(r"F:\hellotalk-vip\samples\xapk\com.hellotalk.apk")
+APK = pathlib.Path(r"<WORKDIR2>\samples\xapk\com.hellotalk.apk")
 STR_RE = re.compile(rb"[\x20-\x7e]{6,120}")
 DEFAULT_KEYS = ("member_privilege_center", "vip_experience_card", "vip_trial")
 

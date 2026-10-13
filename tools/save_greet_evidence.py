@@ -6,7 +6,7 @@ import json
 import pathlib
 import sys
 
-ROOT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm")
+ROOT = pathlib.Path(r"<WORKDIR>\artifacts\mitm")
 SRC = ROOT / "ws.jsonl"
 OUT = ROOT / "greet_evidence.json"
 

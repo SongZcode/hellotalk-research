@@ -3,7 +3,7 @@ import collections
 import pathlib
 import re
 
-ROOT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm")
+ROOT = pathlib.Path(r"<WORKDIR>\artifacts\mitm")
 PAT = re.compile(r"\[(\d+)\] (GET|POST) (https?://[^\s]+)")
 PAT2 = re.compile(r"(GET|POST) (https?://[^\s]+)")
 

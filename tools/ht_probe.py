@@ -7,7 +7,7 @@ import zlib
 
 from mitmproxy import io as mio
 
-DUMP = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\flows2.mitm")
+DUMP = pathlib.Path(r"<WORKDIR>\artifacts\mitm\flows2.mitm")
 
 
 def b64d(s: str):

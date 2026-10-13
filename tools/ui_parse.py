@@ -1,5 +1,5 @@
 import re, sys
-xml = open(r"F:\hellotalk-mitm\artifacts\ui.xml", encoding="utf-8", errors="replace").read()
+xml = open(r"<WORKDIR>\artifacts\ui.xml", encoding="utf-8", errors="replace").read()
 nodes = re.findall(r'<node[^>]*>', xml)
 rows = []
 for n in nodes:

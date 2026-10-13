@@ -3,7 +3,7 @@ import collections
 import pathlib
 import re
 
-ROOT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm")
+ROOT = pathlib.Path(r"<WORKDIR>\artifacts\mitm")
 RE_URL = re.compile(r"https://api-cn\.hellotalk8\.com[A-Za-z0-9_\-./?=&%]+")
 
 

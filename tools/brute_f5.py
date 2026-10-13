@@ -10,7 +10,7 @@ import zlib
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import ht_frame as HF  # noqa: E402
 
-ROOT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm")
+ROOT = pathlib.Path(r"<WORKDIR>\artifacts\mitm")
 SAMPLES = [
     ("0161", bytes.fromhex("cdb7d2cefd3cb5501512dad093fdf5b9aa992b57"), 20),
     ("0361", bytes.fromhex("cdb7d2cee812c55bd4d1298ce4df5a269297088f048bbc6428064b5902124cbbb2ce407e5272f5e22d01fbe26626b98b98be637b503db31b2aceb659"), 60),

@@ -16,7 +16,7 @@ CALL = re.compile(r'invoke-[a-z/]+ \{[^}]*\}, L([A-Za-z0-9_/$]+)->([A-Za-z0-9_<>
 
 def main():
     for pat in NAMES:
-        hits = glob.glob(rf"F:\hellotalk-vip\artifacts\apktool*\**\{pat}", recursive=True)
+        hits = glob.glob(rf"<WORKDIR2>\artifacts\apktool*\**\{pat}", recursive=True)
         if not hits:
             print(f"未找到 {pat}")
             continue

@@ -8,7 +8,7 @@ import sys
 
 from mitmproxy import io as mio
 
-ROOT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm")
+ROOT = pathlib.Path(r"<WORKDIR>\artifacts\mitm")
 SKIP = {"content-length", "accept-encoding", "host", ":authority", "x-request-start",
         "x-b3-spanid", "x-b3-traceid", "x-b3-sampled"}
 

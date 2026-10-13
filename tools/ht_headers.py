@@ -9,15 +9,15 @@ import sys
 
 from mitmproxy import io as mio
 
-OUT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\ws_headers.json")
-JWT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\jwt.txt")
+OUT = pathlib.Path(r"<WORKDIR>\artifacts\mitm\ws_headers.json")
+JWT = pathlib.Path(r"<WORKDIR>\artifacts\mitm\jwt.txt")
 SKIP = {"upgrade", "connection", "sec-websocket-key", "sec-websocket-version", "sec-websocket-extensions",
         "host", "accept-encoding", "x-b3-spanid", "x-b3-traceid", "x-b3-sampled"}
 
 
 def main():
     paths = [pathlib.Path(x) for x in sys.argv[1:]] or sorted(
-        pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm").glob("*.mitm"), key=lambda p: p.stat().st_mtime
+        pathlib.Path(r"<WORKDIR>\artifacts\mitm").glob("*.mitm"), key=lambda p: p.stat().st_mtime
     )
     headers = None
     for p in reversed(paths):

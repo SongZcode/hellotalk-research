@@ -6,12 +6,12 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 
 from mitmproxy import io as mio  # noqa: E402
 
-OUT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\hello_orig.bin")
+OUT = pathlib.Path(r"<WORKDIR>\artifacts\mitm\hello_orig.bin")
 
 
 def main():
     paths = [pathlib.Path(x) for x in sys.argv[1:]] or sorted(
-        pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm").glob("*.mitm"), key=lambda p: p.stat().st_mtime
+        pathlib.Path(r"<WORKDIR>\artifacts\mitm").glob("*.mitm"), key=lambda p: p.stat().st_mtime
     )
     last = None
     for p in paths:

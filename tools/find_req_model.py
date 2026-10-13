@@ -6,7 +6,7 @@ import pathlib
 import re
 import sys
 
-ROOTS = [p for p in pathlib.Path(r"F:\hellotalk-vip\artifacts").glob("apktool*/smali*") if p.is_dir()]
+ROOTS = [p for p in pathlib.Path(r"<WORKDIR2>\artifacts").glob("apktool*/smali*") if p.is_dir()]
 PEW = re.compile(r'value = "([^"]+)"')
 
 

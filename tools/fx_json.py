@@ -3,8 +3,8 @@ import pathlib, sys, threading, time
 import frida
 
 HOST = "127.0.0.1:27042"
-BUNDLE = pathlib.Path(r"F:\hellotalk-mitm\tools\agent\json_spy.bundle.js")
-OUT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\json_spy.log")
+BUNDLE = pathlib.Path(r"<WORKDIR>\tools\agent\json_spy.bundle.js")
+OUT = pathlib.Path(r"<WORKDIR>\artifacts\mitm\json_spy.log")
 
 def main():
     code = BUNDLE.read_text(encoding="utf-8")

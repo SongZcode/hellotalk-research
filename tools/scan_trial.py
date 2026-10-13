@@ -6,7 +6,7 @@ import pathlib
 import re
 import sys
 
-APK = pathlib.Path(r"F:\hellotalk-vip\artifacts")
+APK = pathlib.Path(r"<WORKDIR2>\artifacts")
 KEY = ("trial", "experience", "privilege", "member", "vipplus", "vipprivilege")
 STR_RE = re.compile(r'"(/[A-Za-z0-9_\-./{}]+)"')
 CONST_RE = re.compile(r'const-string [pv]\d+, "([^"]{4,80})"')

@@ -8,8 +8,8 @@ import re
 import sys
 import zlib
 
-OUT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\jwt.txt")
-DUMP_DIR = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm")
+OUT = pathlib.Path(r"<WORKDIR>\artifacts\mitm\jwt.txt")
+DUMP_DIR = pathlib.Path(r"<WORKDIR>\artifacts\mitm")
 
 TOKEN_RE = re.compile(rb'eyJ[A-Za-z0-9_\-]{10,}\.[A-Za-z0-9_\-]{10,}\.[A-Za-z0-9_\-]{10,}')
 

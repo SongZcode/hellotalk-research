@@ -4,7 +4,7 @@ import re
 import sys
 import zipfile
 
-APK = pathlib.Path(r"F:\hellotalk-vip\samples\xapk\com.hellotalk.apk")
+APK = pathlib.Path(r"<WORKDIR2>\samples\xapk\com.hellotalk.apk")
 PAT = re.compile(rb"/(?:member_privilege_center|virtual_pay|virtual_product|payment_gateway)[A-Za-z0-9_/\-{}.]*")
 
 

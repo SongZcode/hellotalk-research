@@ -4,9 +4,9 @@ import json
 import pathlib
 import sys
 
-T = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\hello_template.json")
-O = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\hello_orig.bin")
-J = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\jwt.txt")
+T = pathlib.Path(r"<WORKDIR>\artifacts\mitm\hello_template.json")
+O = pathlib.Path(r"<WORKDIR>\artifacts\mitm\hello_orig.bin")
+J = pathlib.Path(r"<WORKDIR>\artifacts\mitm\jwt.txt")
 
 
 def first_diff(a: bytes, b: bytes):

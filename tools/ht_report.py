@@ -76,7 +76,7 @@ def hdr(raw):
 
 
 def main():
-    paths = [pathlib.Path(p) for p in (sys.argv[1:] or [r"F:\hellotalk-mitm\artifacts\mitm\flows2.mitm"])]
+    paths = [pathlib.Path(p) for p in (sys.argv[1:] or [r"<WORKDIR>\artifacts\mitm\flows2.mitm"])]
     all_frames = []
     for p in paths:
         if p.exists():

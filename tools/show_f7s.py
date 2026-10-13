@@ -4,7 +4,7 @@ import pathlib
 import re
 import sys
 
-P = pathlib.Path(r"F:\hellotalk-mitm\artifacts\f7s_iface.json")
+P = pathlib.Path(r"<WORKDIR>\artifacts\f7s_iface.json")
 
 
 def main():

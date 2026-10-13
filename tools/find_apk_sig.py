@@ -3,8 +3,8 @@ import pathlib
 import re
 import sys
 
-ROOTS = [pathlib.Path(r"F:\hellotalk-vip\artifacts\apktool\smali"),
-         pathlib.Path(r"F:\hellotalk-vip\artifacts\jadx6")]
+ROOTS = [pathlib.Path(r"<WORKDIR2>\artifacts\apktool\smali"),
+         pathlib.Path(r"<WORKDIR2>\artifacts\jadx6")]
 KEY = "android_apk_signature"
 CTX = 40
 

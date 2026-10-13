@@ -6,7 +6,7 @@ import sys
 
 from mitmproxy import io as mio
 
-ROOT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm")
+ROOT = pathlib.Path(r"<WORKDIR>\artifacts\mitm")
 KEYS = ("payment_gateway", "vip_status_report", "vip_trial", "vip_product", "vip_page",
         "vip_banner", "user_virtual_info", "get_pay_chat_info", "act_preload_products")
 

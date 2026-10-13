@@ -3,7 +3,7 @@ import pathlib
 import re
 import sys
 
-ROOTS = [p for p in pathlib.Path(r"F:\hellotalk-vip\artifacts").glob("apktool*/smali*") if p.is_dir()]
+ROOTS = [p for p in pathlib.Path(r"<WORKDIR2>\artifacts").glob("apktool*/smali*") if p.is_dir()]
 NEEDLES = [
     "member_privilege_center", "vip_card", "privilege_card", "experience_card", "trial_card",
     "vip_trial", "receive_card", "claim", "card/receive", "gift_card", "/vip/",

@@ -25,7 +25,7 @@ $adb='F:\located\toolchain\sdk\platform-tools\adb.exe'; $s='<PHONE_LAN_IP>:39083
 frida 17 移除了内置 Java 桥（`typeof Java === "undefined"`），必须用 `frida-java-bridge` 打包：
 
 ```powershell
-cd F:\hellotalk-mitm\tools\agent
+cd <WORKDIR>\tools\agent
 npm install frida-java-bridge esbuild buffer
 node node_modules\esbuild\bin\esbuild agent.js --bundle --format=iife --platform=neutral --target=es2020 `
      --outfile=agent.bundle.js
@@ -60,13 +60,13 @@ node node_modules\esbuild\bin\esbuild agent.js --bundle --format=iife --platform
 
 ```powershell
 # 起抓包（已解密的 WS + HTTP 都会写进 api.log / ws.jsonl）
-$venv='F:\hellotalk-mitm\tools\venv\Scripts'
+$venv='<WORKDIR>\tools\venv\Scripts'
 Start-Process "$venv\mitmdump.exe" -ArgumentList '-p','8080','--set','block_global=false',
-  '-s','F:\hellotalk-mitm\tools\ht_live.py','-w','F:\hellotalk-mitm\artifacts\mitm\flows_https.mitm',
+  '-s','<WORKDIR>\tools\ht_live.py','-w','<WORKDIR>\artifacts\mitm\flows_https.mitm',
   '--set','ws_deflate=false','--set','flow_detail=0'
 & $adb -s $s shell "settings put global http_proxy <PC_LAN_IP>:8080"
 # 守护挂钩子（后台跑）
-python -u F:\hellotalk-mitm\tools\fx_guard.py
+python -u <WORKDIR>\tools\fx_guard.py
 ```
 
 验证：`mitm_https.out` 里 `Client TLS handshake failed` 计数应为 **0**（之前 95~312）。

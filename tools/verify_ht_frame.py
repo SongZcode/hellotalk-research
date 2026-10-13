@@ -6,7 +6,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import ht_frame as HF  # noqa: E402
 
-EV = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\greet_evidence.json")
+EV = pathlib.Path(r"<WORKDIR>\artifacts\mitm\greet_evidence.json")
 
 
 def main():

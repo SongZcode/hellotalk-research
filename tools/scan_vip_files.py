@@ -6,7 +6,7 @@ import pathlib
 import re
 import sys
 
-APK = pathlib.Path(r"F:\hellotalk-vip\artifacts")
+APK = pathlib.Path(r"<WORKDIR2>\artifacts")
 PATH_RE = re.compile(r'"(/[A-Za-z0-9_\-./{}]+)"')
 NAME_KEYS = ("vip", "paywall", "billing", "purchase", "subscribe", "subscription", "entitle", "order")
 

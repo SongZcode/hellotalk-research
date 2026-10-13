@@ -4,7 +4,7 @@ import re
 import sys
 import zipfile
 
-APK = pathlib.Path(r"F:\hellotalk-vip\samples\xapk\com.hellotalk.apk")
+APK = pathlib.Path(r"<WORKDIR2>\samples\xapk\com.hellotalk.apk")
 STR = re.compile(rb"[\x20-\x7e]{8,140}")
 KEYS = (b"card", b"give_", b"send_card", b"friend", b"present")
 

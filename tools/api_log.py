@@ -2,7 +2,7 @@
 import time
 from mitmproxy import http
 
-LOG = r"F:\hellotalk-mitm\artifacts\mitm\api.log"
+LOG = r"<WORKDIR>\artifacts\mitm\api.log"
 SKIP_EXT = (".png", ".jpg", ".jpeg", ".webp", ".gif", ".mp4", ".m4a", ".ttf", ".otf", ".zip", ".apk")
 
 def _w(line: str) -> None:

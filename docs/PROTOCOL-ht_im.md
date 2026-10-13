@@ -156,7 +156,7 @@ opcode 计数字段、或 HTTP 侧会话。若要纯协议复刻打招呼，需�
 4. 连上后固定动作：`pull_msg` → `pull_inbox` → `trace`（顺序/内容见 §2；本客户端已实现）
 5. 同一账号只认当前活跃会话（App 在线上时，第三方连接的后续帧可能被丢）
 
-## 5. 工具清单（`F:\hellotalk-mitm\tools`）
+## 5. 工具清单（`<WORKDIR>\tools`）
 
 | 工具 | 用途 |
 |---|---|
@@ -175,7 +175,7 @@ opcode 计数字段、或 HTTP 侧会话。若要纯协议复刻打招呼，需�
 
 **典型用法**
 ```powershell
-$py='F:\hellotalk-mitm\tools\venv\Scripts\python.exe'
+$py='<WORKDIR>\tools\venv\Scripts\python.exe'
 $env:PYTHONIOENCODING='utf-8'
 & $py -u tools\ht_client.py login
 & $py -u tools\greet_test.py self-test

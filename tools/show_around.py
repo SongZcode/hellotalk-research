@@ -3,7 +3,7 @@ import json
 import pathlib
 import sys
 
-SRC = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\ws.jsonl")
+SRC = pathlib.Path(r"<WORKDIR>\artifacts\mitm\ws.jsonl")
 
 
 def main():

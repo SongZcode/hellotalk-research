@@ -6,7 +6,7 @@ import pathlib
 import re
 import sys
 
-XML = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else pathlib.Path(r"F:\hellotalk-mitm\artifacts\g1.xml")
+XML = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else pathlib.Path(r"<WORKDIR>\artifacts\g1.xml")
 
 
 def attr(node, name):

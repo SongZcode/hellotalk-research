@@ -1,5 +1,5 @@
 import zipfile, re
-z = zipfile.ZipFile(r"F:\hellotalk-vip\samples\xapk\config.arm64_v8a.apk")
+z = zipfile.ZipFile(r"<WORKDIR2>\samples\xapk\config.arm64_v8a.apk")
 libs = [n for n in z.namelist() if n.startswith("lib/arm64-v8a/") and n.endswith(".so")]
 terms = [b"session_key", b"ht_im/sock", b"session_id", b"encrypt", b"AES", b"IMSocket", b"im/sock", b"jwt"]
 out = []

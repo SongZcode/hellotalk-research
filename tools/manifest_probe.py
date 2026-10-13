@@ -1,7 +1,7 @@
 from loguru import logger as lg
 lg.remove()
 import zipfile, re
-z = zipfile.ZipFile(r"F:\hellotalk-vip\samples\xapk\com.hellotalk.apk")
+z = zipfile.ZipFile(r"<WORKDIR2>\samples\xapk\com.hellotalk.apk")
 data = z.read("AndroidManifest.xml")
 # 直接找字符串池里的类名
 text = data.decode("utf-16-le", "ignore")

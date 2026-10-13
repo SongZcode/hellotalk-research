@@ -18,7 +18,7 @@ import time
 
 from mitmproxy import http
 
-LOG = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\vip_cover.log")
+LOG = pathlib.Path(r"<WORKDIR>\artifacts\mitm\vip_cover.log")
 TARGET = "/safety/v1/vip_status_report"
 
 

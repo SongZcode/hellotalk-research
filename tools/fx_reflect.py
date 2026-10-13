@@ -14,7 +14,7 @@ import time
 import frida
 
 HOST = "127.0.0.1:27042"
-BUNDLE = pathlib.Path(r"F:\hellotalk-mitm\tools\agent\reflect_api.bundle.js")
+BUNDLE = pathlib.Path(r"<WORKDIR>\tools\agent\reflect_api.bundle.js")
 
 
 def main():

@@ -8,7 +8,7 @@ import urllib.request
 CTX = ssl.create_default_context()
 CTX.check_hostname = False
 CTX.verify_mode = ssl.CERT_NONE
-ROOT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm")
+ROOT = pathlib.Path(r"<WORKDIR>\artifacts\mitm")
 BASE = "https://api-cn.hellotalk8.com/member_privilege_center/v3/"
 UID = <UID>
 

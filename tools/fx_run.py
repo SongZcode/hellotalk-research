@@ -12,8 +12,8 @@ import time
 import frida
 
 HOST = "127.0.0.1:27042"
-BUNDLE = pathlib.Path(r"F:\hellotalk-mitm\tools\agent\agent.bundle.js")
-OUT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\frida_agent.jsonl")
+BUNDLE = pathlib.Path(r"<WORKDIR>\tools\agent\agent.bundle.js")
+OUT = pathlib.Path(r"<WORKDIR>\artifacts\mitm\frida_agent.jsonl")
 
 
 def main():

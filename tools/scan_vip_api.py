@@ -10,10 +10,10 @@ import re
 import sys
 
 SMALI_ROOTS = [
-    pathlib.Path(r"F:\hellotalk-vip\artifacts\apktool\smali"),
-    pathlib.Path(r"F:\hellotalk-vip\artifacts\apktool_raw\smali"),
+    pathlib.Path(r"<WORKDIR2>\artifacts\apktool\smali"),
+    pathlib.Path(r"<WORKDIR2>\artifacts\apktool_raw\smali"),
 ]
-EXTRA = list(pathlib.Path(r"F:\hellotalk-vip\artifacts").glob("apktool*/smali*"))
+EXTRA = list(pathlib.Path(r"<WORKDIR2>\artifacts").glob("apktool*/smali*"))
 
 PATHS = re.compile(r'"/(?:[A-Za-z0-9_\-./{}]+)"')
 KEYWORDS = ("vip", "pay", "purchase", "billing", "order", "subscri", "product", "entitle", "redeem", "coupon")

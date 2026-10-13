@@ -18,7 +18,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import ht_frame as HF  # noqa: E402
 
 UID = <UID>
-ORIG = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\hello_orig.bin")
+ORIG = pathlib.Path(r"<WORKDIR>\artifacts\mitm\hello_orig.bin")
 
 
 async def try_case(name: str, url: str, frame: bytes, headers: dict | None = None):

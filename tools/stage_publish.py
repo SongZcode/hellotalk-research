@@ -8,8 +8,8 @@ import re
 import shutil
 import sys
 
-SRC = pathlib.Path(r"F:\hellotalk-mitm")
-DST = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else pathlib.Path(r"F:\hellotalk-mitm-publish")
+SRC = pathlib.Path(r"<WORKDIR>")
+DST = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else pathlib.Path(r"<WORKDIR>-publish")
 
 # 脱敏规则：真实标识 → 占位符
 SCRUB = [
@@ -30,6 +30,24 @@ SCRUB = [
 SKIP_DIRS = {"artifacts", "recon", ".git", ".dsh", ".agent-bus", "venv", "node_modules", "__pycache__"}
 SKIP_SUFFIX = {".apk", ".so", ".xz", ".mitm", ".db", ".bin", ".png", ".jpg", ".pyc", ".zip", ".log"}
 SKIP_NAME_RE = re.compile(r"\.bundle\.js$|^u\d+\.xml$|^g\d+\.xml$|^p\d+\.xml$|^f\d+\.xml$|^m\d+\.xml$")
+# 个人安全审计类文档，不进公开仓库
+SKIP_DOC_RE = re.compile(r"SECURITY|安全.*(报告|审计)|凭[证据]" )
+# 与本机个人环境相关的脚本/文件，不进公开仓库
+SKIP_FILES = {
+    "AGENTS.md", "_reg.py", "prefs_spy.js", "dbs_spy.js", "db_query.js", "read_sayhi.js",
+    "cred_scan.py", "check_repos.py", "final_audit.py", "fix_leaked_keys.py",
+    "restore_and_secure.py", "make_env_files.py", "add_stdlib_loader.py",
+    "fix_config_loader.py", "patch_filmclaw_config.py", "rebuild_secrets.py",
+    "verify_leakfix.py", "verify_all.py", "fx_dbquery.py", "fx_dbs.py", "fx_prefs.py",
+    "fx_readsayhi.py", "fx_vipcheck.py", "vipcheck.js",
+}
+# 个人路径/主机信息，发布前替换
+PATH_SCRUB = [
+    (r"F:\\hellotalk-mitm", "<WORKDIR>"),
+    (r"F:\\hellotalk-vip", "<WORKDIR2>"),
+    (r"F:\\Code", "<CODEDIR>"),
+    (r"C:\\Users\\17236", "<HOME>"),
+]
 
 TEXT_EXT = {".md", ".py", ".js", ".json", ".txt", ".yml", ".yaml", ".sh", ".ps1", ".xml", ".cfg", ".toml"}
 
@@ -37,13 +55,24 @@ TEXT_EXT = {".md", ".py", ".js", ".json", ".txt", ".yml", ".yaml", ".sh", ".ps1"
 def scrub(text: str) -> str:
     for pat, rep in SCRUB:
         text = re.sub(pat, rep, text)
+    for pat, rep in PATH_SCRUB:
+        text = re.sub(pat, rep, text)
     return text
 
 
 def main():
-    if DST.exists():
-        shutil.rmtree(DST)
-    DST.mkdir(parents=True)
+    DST.mkdir(parents=True, exist_ok=True)
+    # 只清理内容，保留 .git（否则无法继续提交/推送，且 Windows 下 git 对象只读删不掉）
+    for item in DST.iterdir():
+        if item.name == ".git":
+            continue
+        try:
+            if item.is_dir():
+                shutil.rmtree(item, ignore_errors=True)
+            else:
+                item.unlink(missing_ok=True)
+        except OSError as e:
+            print(f"[warn] 无法清理 {item.name}: {e}")
     copied = skipped = 0
     for p in SRC.rglob("*"):
         rel = p.relative_to(SRC)
@@ -51,7 +80,7 @@ def main():
             continue
         if p.is_dir():
             continue
-        if p.suffix.lower() in SKIP_SUFFIX or SKIP_NAME_RE.search(p.name):
+        if p.suffix.lower() in SKIP_SUFFIX or SKIP_NAME_RE.search(p.name) or SKIP_DOC_RE.search(p.name) or p.name in SKIP_FILES or ".bak-" in p.name:
             skipped += 1
             continue
         # 跳过超大文件

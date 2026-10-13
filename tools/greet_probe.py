@@ -23,7 +23,7 @@ import ht_client as HC  # noqa: E402
 import ht_frame as HF  # noqa: E402
 
 UID = HC.UID
-ROOT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm")
+ROOT = pathlib.Path(r"<WORKDIR>\artifacts\mitm")
 TARGET = ROOT / "target_uid.txt"
 
 

@@ -3,7 +3,7 @@ import pathlib
 import re
 import sys
 
-ROOTS = [p for p in pathlib.Path(r"F:\hellotalk-vip\artifacts").glob("apktool*/smali*") if p.is_dir()]
+ROOTS = [p for p in pathlib.Path(r"<WORKDIR2>\artifacts").glob("apktool*/smali*") if p.is_dir()]
 STR = re.compile(r'const-string [pv]\d+, "([^"]+)"')
 INTEREST = re.compile(r"(card|trial|privilege|experience)", re.I)
 URLISH = re.compile(r"^/|https?://")

@@ -21,7 +21,7 @@ import zlib
 
 from mitmproxy import http
 
-ROOT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm")
+ROOT = pathlib.Path(r"<WORKDIR>\artifacts\mitm")
 LOG = ROOT / "api.log"
 JSONL = ROOT / "ws.jsonl"
 SKIP_EXT = (".png", ".jpg", ".jpeg", ".webp", ".gif", ".mp4", ".m4a", ".ttf", ".otf", ".zip", ".apk")

@@ -1,5 +1,5 @@
 import zipfile, re
-z = zipfile.ZipFile(r"F:\hellotalk-vip\samples\xapk\com.hellotalk.apk")
+z = zipfile.ZipFile(r"<WORKDIR2>\samples\xapk\com.hellotalk.apk")
 d = z.read("classes6.dex")
 for t in [b"freeSayHiTimes", b"ExposureStatusLiveData", b"free_sayhi_times", b"freeNum"]:
     for m in re.finditer(re.escape(t), d):

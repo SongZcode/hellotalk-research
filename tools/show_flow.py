@@ -11,7 +11,7 @@ import zlib
 
 from mitmproxy import io as mio
 
-ROOT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm")
+ROOT = pathlib.Path(r"<WORKDIR>\artifacts\mitm")
 
 
 def body_text(msg) -> str:

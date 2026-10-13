@@ -6,7 +6,7 @@ import pathlib
 import re
 import sys
 
-SMALI = pathlib.Path(r"F:\hellotalk-vip\artifacts\apktool\smali")
+SMALI = pathlib.Path(r"<WORKDIR2>\artifacts\apktool\smali")
 
 
 def main():

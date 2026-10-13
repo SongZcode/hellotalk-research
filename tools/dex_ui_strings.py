@@ -4,7 +4,7 @@ import re
 import sys
 import zipfile
 
-APK = pathlib.Path(r"F:\hellotalk-vip\samples\xapk\com.hellotalk.apk")
+APK = pathlib.Path(r"<WORKDIR2>\samples\xapk\com.hellotalk.apk")
 CJK = re.compile(rb"(?:[\xe4-\xe9][\x80-\xbf]{2}){2,16}")
 KEYS = ["激励", "视频", "看广告", "次数", "免费", "领取", "获得", "体验卡", "试用"]
 

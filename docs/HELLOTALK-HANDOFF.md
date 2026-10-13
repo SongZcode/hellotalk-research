@@ -17,14 +17,14 @@ HelloTalk 安卓端（6.4.20）已完成**免 root 重打包 + 本地 VIP 门禁
 
 | 工作区 | 用途 | 关键目录 |
 |---|---|---|
-| `F:\hellotalk-vip` | 样本 / 反编译 / 打补丁 / 重打包签名 | `samples\xapk\`（三件套）、`artifacts\apktool*`（smali 工程）、`artifacts\jadx6`（classes6 全量反编译）、`artifacts\build\signed2\`（已签名可装包） |
-| `F:\hellotalk-mitm` | 抓包 / frida / 协议分析 | `tools\venv`（mitmproxy+frida）、`tools\*.js`（frida 脚本）、`artifacts\mitm\`（flows/api.log） |
+| `<WORKDIR2>` | 样本 / 反编译 / 打补丁 / 重打包签名 | `samples\xapk\`（三件套）、`artifacts\apktool*`（smali 工程）、`artifacts\jadx6`（classes6 全量反编译）、`artifacts\build\signed2\`（已签名可装包） |
+| `<WORKDIR>` | 抓包 / frida / 协议分析 | `tools\venv`（mitmproxy+frida）、`tools\*.js`（frida 脚本）、`artifacts\mitm\`（flows/api.log） |
 
 总线注册名：`hellotalk-vip`、`hellotalk-mitm`（唤醒标签都是 `[to:harness]`）
 - 给本项目 Codex 席位发消息：写 `*.txt` 到 `F:\agent_bus\projects\hellotalk-mitm\to_codex\`
 - 唤醒 dsh 会话：写 `*.txt` 到 `F:\agent_bus\projects\hellotalk-mitm\to_agent\`
 - Codex 席位线程：`01a12b1a-d1c0-74f1-8208-ad1a13c69bc6`（已注册 projects.json，deliver=resume）
-- 已下发任务：`T1_sayhi_chain.txt`（定位打招呼调用链，判定客户端/服务端拦截）—— **接手后先看它有没有产出**：`F:\hellotalk-mitm\docs\codex\T1-打招呼判定链.md`
+- 已下发任务：`T1_sayhi_chain.txt`（定位打招呼调用链，判定客户端/服务端拦截）—— **接手后先看它有没有产出**：`<WORKDIR>\docs\codex\T1-打招呼判定链.md`
 
 ---
 
@@ -53,7 +53,7 @@ $s='<PHONE_LAN_IP>:39083'        # 无线调试；USB 也可用（序列号 QCAY
 - 计费：`com.android.billingclient`（Google Play Billing）+ `lib/pay/vip/*` 页面
 
 ### 3.2 补丁（已落地）
-`F:\hellotalk-vip\tools\patch_ia30.py`（smali 层）：
+`<WORKDIR2>\tools\patch_ia30.py`（smali 层）：
 - `i()` → 返回 `0x7fffffff`
 - `n()` → 返回 `2`
 - `r()` → 返回 `true`
@@ -63,10 +63,10 @@ $s='<PHONE_LAN_IP>:39083'        # 无线调试；USB 也可用（序列号 QCAY
 1. `apktool d -r`（**只解 smali，不解资源** —— 全量解资源会被 aapt2 卡死在自定义 attr）
 2. 打补丁（patch_ia30.py）
 3. `apktool b <工程> -o out.apk`（约 3-6 分钟）
-4. `zipalign -f -p 16384` → `apksigner sign --ks F:\hellotalk-vip\tools\ht-debug.keystore --ks-pass pass:android --key-pass pass:android`
+4. `zipalign -f -p 16384` → `apksigner sign --ks <WORKDIR2>\tools\ht-debug.keystore --ks-pass pass:android --key-pass pass:android`
 5. 三个包（base+arm64+mdpi）**必须同签名**；安装用 `adb install-multiple -r base.apk split1.apk split2.apk`
-- 现成产物：`F:\hellotalk-vip\artifacts\build\signed2\com.hellotalk.{base,arm64,mdpi}.apk`（VIP 补丁版）
-- gadget 版：`F:\hellotalk-mitm\artifacts\build\com.hellotalk.gadget.apk`（已注入 frida-gadget 17.23.3）
+- 现成产物：`<WORKDIR2>\artifacts\build\signed2\com.hellotalk.{base,arm64,mdpi}.apk`（VIP 补丁版）
+- gadget 版：`<WORKDIR>\artifacts\build\com.hellotalk.gadget.apk`（已注入 frida-gadget 17.23.3）
 
 ### 3.4 实测结果（验收）
 | 权益 | 结果 |
@@ -76,7 +76,7 @@ $s='<PHONE_LAN_IP>:39083'        # 无线调试；USB 也可用（序列号 QCAY
 | 搜索附近的人 | ✅ 通 |
 | 打招呼 10 人/天 | ❌ 服务端计数（见 §4） |
 
-证据截图：`F:\hellotalk-vip\artifacts\shots\`（01 登录、02 VIP 页、03 谁看了我、04 找语伴附近、05/06 特权表）
+证据截图：`<WORKDIR2>\artifacts\shots\`（01 登录、02 VIP 页、03 谁看了我、04 找语伴附近、05/06 特权表）
 
 ---
 
@@ -122,7 +122,7 @@ $s='<PHONE_LAN_IP>:39083'        # 无线调试；USB 也可用（序列号 QCAY
 
 ## 5. MITM / 协议层（✅ 已突破 —— 不再是「加密」）
 
-> 详细版见 `F:\hellotalk-mitm\docs\PROTOCOL-ht_im.md`（帧结构、opcode 全表、工具清单、连接要求）
+> 详细版见 `<WORKDIR>\docs\PROTOCOL-ht_im.md`（帧结构、opcode 全表、工具清单、连接要求）
 
 ### 5.1 核心结论（2026-10-11 深夜）
 **`ht_im/sock` 握手之后的帧不是应用层加密，只是 zlib 压缩的 JSON。**
@@ -193,15 +193,15 @@ $s='<PHONE_LAN_IP>:39083'        # 无线调试；USB 也可用（序列号 QCAY
 
 ```powershell
 # 起抓包（可见窗口，关掉=手机断网！）
-$venv='F:\hellotalk-mitm\tools\venv\Scripts'
-Start-Process "$venv\mitmdump.exe" -ArgumentList '-p','8080','--set','block_global=false','-s','F:\hellotalk-mitm\tools\api_log.py','-w','F:\hellotalk-mitm\artifacts\mitm\flows.mitm'
+$venv='<WORKDIR>\tools\venv\Scripts'
+Start-Process "$venv\mitmdump.exe" -ArgumentList '-p','8080','--set','block_global=false','-s','<WORKDIR>\tools\api_log.py','-w','<WORKDIR>\artifacts\mitm\flows.mitm'
 # 设/清手机代理
 & $adb -s $s shell "settings put global http_proxy <PC_LAN_IP>:8080"
 & $adb -s $s shell "settings put global http_proxy :0"
 # 读流量摘要
-Get-Content 'F:\hellotalk-mitm\artifacts\mitm\api.log' -Tail 60 -Encoding UTF8
+Get-Content '<WORKDIR>\artifacts\mitm\api.log' -Tail 60 -Encoding UTF8
 # 重打包（VIP 补丁版）
-powershell -File F:\hellotalk-vip\tools\dex-patch-pipeline.ps1     # 注意：该脚本用 apktool d -r + patch + b（已验证）
+powershell -File <WORKDIR2>\tools\dex-patch-pipeline.ps1     # 注意：该脚本用 apktool d -r + patch + b（已验证）
 # 装包
 & $adb -s $s install-multiple -r <base.apk> <arm64.apk> <mdpi.apk>
 ```

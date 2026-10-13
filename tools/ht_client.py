@@ -30,8 +30,8 @@ import websockets  # noqa: E402
 
 URL = "wss://api-cn.hellotalk8.com/ht_im/sock?userid={uid}"
 UID = <UID>
-JWT_FILE = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\jwt.txt")
-LOG = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\client.log")
+JWT_FILE = pathlib.Path(r"<WORKDIR>\artifacts\mitm\jwt.txt")
+LOG = pathlib.Path(r"<WORKDIR>\artifacts\mitm\client.log")
 
 HELLO = {
     "jwt": "",
@@ -69,7 +69,7 @@ def pack_plain(opcode: bytes, uid: int, obj) -> bytes:
 
 def load_hello() -> dict:
     """优先用抓包原样模板（字段不多不少），失败退回内置默认。"""
-    tpl_file = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\hello_template.json")
+    tpl_file = pathlib.Path(r"<WORKDIR>\artifacts\mitm\hello_template.json")
     if tpl_file.exists():
         try:
             return json.loads(tpl_file.read_text(encoding="utf-8"))["hello"]
@@ -102,7 +102,7 @@ class Client:
         # websockets 13.x 的旧客户端用 extra_headers
         ctx = ssl.create_default_context()
         extra = {k: v for k, v in {"User-Agent": "okhttp/5.3.2"}.items()}
-        hdr_file = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\ws_headers.json")
+        hdr_file = pathlib.Path(r"<WORKDIR>\artifacts\mitm\ws_headers.json")
         if hdr_file.exists():
             try:
                 extra.update(json.loads(hdr_file.read_text(encoding="utf-8")))
@@ -129,7 +129,7 @@ class Client:
         op = HF.build_opcode(HF.OP["handshake"], seq)
         frame = pack_plain(op, UID, hello)
 
-        orig = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\hello_orig.bin")
+        orig = pathlib.Path(r"<WORKDIR>\artifacts\mitm\hello_orig.bin")
         if orig.exists():
             ob = orig.read_bytes()
             same = sum(1 for a, b in zip(ob, frame) if a == b)

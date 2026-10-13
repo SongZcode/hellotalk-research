@@ -3,7 +3,7 @@ from loguru import logger as lg
 lg.remove()
 sys.path.insert(0, r"F:\hok\tools\vendor")
 from androguard.core.dex import DEX
-z = zipfile.ZipFile(r"F:\hellotalk-vip\samples\xapk\com.hellotalk.apk")
+z = zipfile.ZipFile(r"<WORKDIR2>\samples\xapk\com.hellotalk.apk")
 targets = {"freeSayHiTimes", "freeNum", "freeSecond", "freeTitle", "exposureStatus"}
 for name in [n for n in z.namelist() if re.match(r"classes\d*\.dex$", n)]:
     d = DEX(z.read(name))

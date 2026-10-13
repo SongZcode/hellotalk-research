@@ -1,5 +1,5 @@
 import zipfile, re
-z = zipfile.ZipFile(r"F:\hellotalk-vip\samples\xapk\com.hellotalk.apk")
+z = zipfile.ZipFile(r"<WORKDIR2>\samples\xapk\com.hellotalk.apk")
 terms = ["say_hi", "sayHi", "SayHi", "greet", "Greet", "limit", "Limit", "remain", "Remain", "quota", "Quota", "exceeded", "upper_limit", "upperLimit"]
 for name in [n for n in z.namelist() if re.match(r"classes\d*\.dex$", n)]:
     d = z.read(name)

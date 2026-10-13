@@ -50,6 +50,6 @@
 
 ## 6. 不确定项与最小验证实验
 
-1. 错误码 18 的字节级来源未还原（WS 帧体加密，见 `F:\hellotalk-mitm\docs\交接文档.md:53`）。验证：gadget 版上 hook `Lncf;->onError(ILjava/lang/String;)V`（实现在 `b7z`）与 `nu50.e(Lnu50;[B)`，第 11 次点击时看 (code,msg) 与上行帧是否真的发出 → 若"请求已发出且服务端回 18"即为服务端计数铁证。
+1. 错误码 18 的字节级来源未还原（WS 帧体加密，见 `<WORKDIR>\docs\交接文档.md:53`）。验证：gadget 版上 hook `Lncf;->onError(ILjava/lang/String;)V`（实现在 `b7z`）与 `nu50.e(Lnu50;[B)`，第 11 次点击时看 (code,msg) 与上行帧是否真的发出 → 若"请求已发出且服务端回 18"即为服务端计数铁证。
 2. `lty.k()`(`f58.a()` = chatCount) 的取值来源未定（付墙资格判据，属 15 chats/day 新会话额度），与打招呼次数是两个量，勿混。
 3. 未运行时确认 10/日 的具体阈值下发字段；静态只确认客户端未硬编码 10（`const/16 … 0xa` 未出现在打招呼路径）。

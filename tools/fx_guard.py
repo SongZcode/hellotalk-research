@@ -9,8 +9,8 @@ import time
 import frida
 
 HOST = "127.0.0.1:27042"
-BUNDLE = pathlib.Path(r"F:\hellotalk-mitm\tools\agent\agent.bundle.js")
-LOG = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\frida_guard.log")
+BUNDLE = pathlib.Path(r"<WORKDIR>\tools\agent\agent.bundle.js")
+LOG = pathlib.Path(r"<WORKDIR>\artifacts\mitm\frida_guard.log")
 
 
 def w(line: str):

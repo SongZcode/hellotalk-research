@@ -13,8 +13,8 @@ import time
 import frida
 
 HOST = "127.0.0.1:27042"
-BUNDLE = pathlib.Path(r"F:\hellotalk-mitm\tools\agent\pay_probe.bundle.js")
-OUT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\pay_probe.log")
+BUNDLE = pathlib.Path(r"<WORKDIR>\tools\agent\pay_probe.bundle.js")
+OUT = pathlib.Path(r"<WORKDIR>\artifacts\mitm\pay_probe.log")
 
 
 def main():

@@ -1,5 +1,5 @@
 import zipfile, re, collections
-z = zipfile.ZipFile(r"F:\hellotalk-vip\samples\xapk\com.hellotalk.apk")
+z = zipfile.ZipFile(r"<WORKDIR2>\samples\xapk\com.hellotalk.apk")
 hosts = collections.Counter()
 pat = re.compile(rb"[a-z0-9][a-z0-9.-]{2,60}\.(?:com|net|cn|org)(?::\d+)?")
 for name in [n for n in z.namelist() if re.match(r"classes\d*\.dex$", n)]:

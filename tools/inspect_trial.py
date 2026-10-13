@@ -16,7 +16,7 @@ STR = re.compile(r'const-string [pv]\d+, "([^"]+)"')
 
 def main():
     for n in NAMES:
-        hits = glob.glob(rf"F:\hellotalk-vip\artifacts\apktool*\**\{n}", recursive=True)
+        hits = glob.glob(rf"<WORKDIR2>\artifacts\apktool*\**\{n}", recursive=True)
         if not hits:
             print(f"--- {n}: 未找到")
             continue

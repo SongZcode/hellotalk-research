@@ -6,7 +6,7 @@ import pathlib
 import re
 import sys
 
-XML = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else pathlib.Path(r"F:\hellotalk-mitm\artifacts\u8.xml")
+XML = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else pathlib.Path(r"<WORKDIR>\artifacts\u8.xml")
 NEEDLE = sys.argv[1] if len(sys.argv) > 1 else "打招呼"
 
 

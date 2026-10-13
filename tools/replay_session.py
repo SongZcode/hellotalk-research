@@ -15,7 +15,7 @@ import ht_frame as HF  # noqa: E402
 
 UID = <UID>
 URL = f"wss://api-cn.hellotalk8.com/ht_im/sock?userid={UID}"
-HDR = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\ws_headers.json")
+HDR = pathlib.Path(r"<WORKDIR>\artifacts\mitm\ws_headers.json")
 
 
 def load_frames(dump: pathlib.Path):

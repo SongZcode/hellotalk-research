@@ -13,7 +13,7 @@ import sys
 
 ADB = r"F:\located\toolchain\sdk\platform-tools\adb.exe"
 SERIAL = "<PHONE_LAN_IP>:39083"
-XML = pathlib.Path(r"F:\hellotalk-mitm\artifacts\ui_now.xml")
+XML = pathlib.Path(r"<WORKDIR>\artifacts\ui_now.xml")
 
 NODE = re.compile(r"<node[^>]*>")
 

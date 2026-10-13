@@ -27,7 +27,7 @@
 ## 2. 反射方法（可复用）
 
 ```powershell
-$py='F:\hellotalk-mitm\tools\venv\Scripts\python.exe'
+$py='<WORKDIR>\tools\venv\Scripts\python.exe'
 & $py -u tools\fx_reflect.py iface f7s      # 读接口 → URL + 参数模型
 & $py -u tools\fx_reflect.py fields yb30    # 读模型字段名（@pew 注解）
 $py -W ignore tools\show_f7s.py             # 汇总表

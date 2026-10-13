@@ -3,7 +3,7 @@ import collections
 import pathlib
 import re
 
-LOG = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\api.log")
+LOG = pathlib.Path(r"<WORKDIR>\artifacts\mitm\api.log")
 RE_REQ = re.compile(r"\[(\d+)\] (GET|POST) (https://[^\s]+)")
 RE_RESP = re.compile(r"RESP (.*)")
 

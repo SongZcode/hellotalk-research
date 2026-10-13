@@ -7,7 +7,7 @@ from mitmproxy import io as mio
 
 def main():
     paths = [pathlib.Path(x) for x in sys.argv[1:]] or sorted(
-        pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm").glob("*.mitm"), key=lambda p: p.stat().st_mtime
+        pathlib.Path(r"<WORKDIR>\artifacts\mitm").glob("*.mitm"), key=lambda p: p.stat().st_mtime
     )
     for p in paths:
         try:

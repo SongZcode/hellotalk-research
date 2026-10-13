@@ -11,7 +11,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import ht_frame as HF  # noqa: E402
 
 UID = <UID>
-ROOT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm")
+ROOT = pathlib.Path(r"<WORKDIR>\artifacts\mitm")
 
 
 def headers(jwt: str | None = None):

@@ -1,0 +1,1 @@
+Java.perform(function(){ console.log('[t2] java ok'); });

@@ -23,7 +23,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import ht_client as HC  # noqa: E402
 import ht_frame as HF  # noqa: E402
 
-ROOT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm")
+ROOT = pathlib.Path(r"<WORKDIR>\artifacts\mitm")
 EV = json.loads((ROOT / "greet_evidence.json").read_text(encoding="utf-8"))
 GREET_BODY = EV["greet_up"]["body"]
 

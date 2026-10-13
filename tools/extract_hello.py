@@ -11,8 +11,8 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import ht_frame as HF  # noqa: E402
 
-OUT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\hello_template.json")
-JWT_OUT = pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm\jwt.txt")
+OUT = pathlib.Path(r"<WORKDIR>\artifacts\mitm\hello_template.json")
+JWT_OUT = pathlib.Path(r"<WORKDIR>\artifacts\mitm\jwt.txt")
 TOKEN_RE = re.compile(rb'eyJ[A-Za-z0-9_\-]{10,}\.[A-Za-z0-9_\-]{10,}\.[A-Za-z0-9_\-]{10,}')
 
 
@@ -20,7 +20,7 @@ def main():
     from mitmproxy import io as mio
 
     paths = [pathlib.Path(x) for x in sys.argv[1:]] or sorted(
-        pathlib.Path(r"F:\hellotalk-mitm\artifacts\mitm").glob("*.mitm"), key=lambda p: p.stat().st_mtime
+        pathlib.Path(r"<WORKDIR>\artifacts\mitm").glob("*.mitm"), key=lambda p: p.stat().st_mtime
     )
     hello_obj = None
     newest_jwt = None

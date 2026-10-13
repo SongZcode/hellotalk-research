@@ -4,8 +4,8 @@ import re
 import sys
 
 PATHS = [
-    pathlib.Path(r"F:\hellotalk-vip\artifacts\apktool_clean\res\values-zh-rCN\strings.xml"),
-    pathlib.Path(r"F:\hellotalk-vip\artifacts\apktool_clean\res\values\strings.xml"),
+    pathlib.Path(r"<WORKDIR2>\artifacts\apktool_clean\res\values-zh-rCN\strings.xml"),
+    pathlib.Path(r"<WORKDIR2>\artifacts\apktool_clean\res\values\strings.xml"),
 ]
 KEYS = ("greet", "sayhi", "say_hi", "free_", "chat_chance", "stranger")
 

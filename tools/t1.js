@@ -1,0 +1,1 @@
+console.log('[t1] hello, modules=' + Process.enumerateModules().length);

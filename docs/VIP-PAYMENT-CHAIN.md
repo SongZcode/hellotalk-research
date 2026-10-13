@@ -66,7 +66,7 @@ AppsFlyer 上报里带 `"sig":"5DB3A1E7...A454"` —— **正是我们调试证�
 & $adb -s $s forward tcp:27042 tcp:27042
 
 # 2) 常驻证书绕过（App 重启自动重挂）
-python -u F:\hellotalk-mitm\tools\fx_guard.py
+python -u <WORKDIR>\tools\fx_guard.py
 
 # 3) 支付探测（改金额 + 捞响应）
 node tools\agent\node_modules\esbuild\bin\esbuild tools\agent\pay_probe.js --bundle --format=iife `
