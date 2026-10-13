@@ -1,0 +1,52 @@
+RESEARCH-ONLY LICENSE / 仅供学习研究许可
+
+Copyright (c) 2026 SongZcode
+All rights reserved as described below.
+
+本仓库（下称"本项目"）的所有内容——包括但不限于分析文档、脚本、工具与说明——
+仅授权用于【个人学习、安全研究与教学交流】。
+
+一、允许的行为
+1. 阅读、复制、修改本项目内容用于个人学习或学术研究；
+2. 在非商业的安全研究、课程教学或技术分享中引用（请注明来源）；
+3. 基于本项目进行衍生研究，但衍生成果须保留本许可。
+
+二、禁止的行为
+1. 任何形式的商业使用，包括但不限于：出售、出租、打包进商业产品、
+   用于代充/代注册/账号交易/刷量/薅取平台补贴等牟利行为；
+2. 将他人的账号、设备或网络作为目标进行测试、入侵或数据获取；
+3. 用于骚扰、诈骗、身份冒用、隐私侵犯或任何违法用途；
+4. 用于规避第三方服务的安全机制以获取不当利益。
+
+三、免责声明
+本项目按"现状"（AS IS）提供，不附带任何明示或暗示的保证，包括但不限于
+对适销性、特定用途适用性及不侵权的保证。
+
+作者不对以下后果承担任何责任：
+1. 因使用或无法使用本项目而产生的任何直接、间接、附带或后果性损害；
+2. 账号被限制、封禁，或目标服务条款被违反所产生的任何后果；
+3. 因使用本项目导致的任何法律纠纷或行政、刑事责任；
+4. 第三方内容（商标、版权内容等）的任何权利主张。
+
+使用者须自行确认其行为在所在司法辖区内的合法性，并自行承担全部风险与责任。
+一旦使用本项目的任何内容，即视为已阅读、理解并接受上述全部条款。
+
+四、第三方权利
+本项目不包含任何受第三方版权保护的资源（应用安装包、二进制库、图片、字体等）。
+相关商标与内容归其各自权利人所有。本项目与所研究的目标应用官方无任何关联。
+
+五、许可终止
+违反上述任一条款，本许可即自动终止，使用者须立即停止使用并删除所有副本。
+
+---
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this research material, to deal with it for PERSONAL STUDY AND SECURITY RESEARCH
+purposes only, subject to the restrictions and disclaimers stated above.
+
+THE SOFTWARE/RESEARCH IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE RESEARCH OR THE USE OR OTHER DEALINGS IN IT.
