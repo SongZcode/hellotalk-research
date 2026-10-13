@@ -141,7 +141,7 @@ opcode 计数字段、或 HTTP 侧会话。若要纯协议复刻打招呼，需�
 ```
 ⇒ 现在可以**逐字节复刻任意帧**（`tools/verify_ht_frame.py` 可复验）。
 
-**静态分析对照**（子 agent T1，`docs/codex/T1-打招呼判定链-sub.md`）：
+**静态分析对照**（历史记录，`docs/archive/codex/T1-打招呼判定链-sub.md`）：
 点击 → `z2h.R0` → `klz.smali:2867` 构造 `IMNewStickerBean{productId=1,imageId=11,helloMsg=1}` → IM WS；
 客户端 82734 个 smali 全量扫描无阈值比较 → 无本地闸门（与实测一致）。
 
