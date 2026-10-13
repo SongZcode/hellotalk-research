@@ -11,6 +11,7 @@ HelloTalk Android 客户端与通信协议的研究资料和分析工具，面�
 | 先了解项目内容 | [文档导航](docs/README.md) |
 | 不连接设备或服务，运行一个示例 | [离线帧示例](#快速开始) |
 | 分析已有的本地抓包文件 | [工具说明](docs/TOOLS.md#本地抓包分析) |
+| 清点本地 APK 或搜索 DEX 文本片段 | [APK 静态分析](docs/TOOLS.md#apk-静态分析) |
 | 了解 IM 帧结构和分析结果 | [IM 协议分析](docs/PROTOCOL-ht_im.md) |
 | 查阅客户端、授权与支付链路资料 | [文档导航](docs/README.md#分析文档) |
 | 修改工具或补充研究记录 | [贡献指南](CONTRIBUTING.md) |
@@ -21,6 +22,7 @@ HelloTalk Android 客户端与通信协议的研究资料和分析工具，面�
 - HTTP 应用层数据处理、客户端观测点及测试环境记录。
 - 会员权益、额度和支付链路的客户端与服务端边界分析。
 - 本地流量分析脚本、帧编解码模块，以及保留供阅读的实验脚本。
+- 参数化的 APK 结构清点、DEX ASCII 片段搜索，以及使用合成数据的离线回归测试。
 
 **工具的可用程度不同。** 部分实验脚本仍依赖个人测试环境，13 个 Python 脚本因脱敏占位符无法直接通过语法检查；请先查看 [工具说明](docs/TOOLS.md)，不要把整个 `tools/` 目录当作已发布的可执行工具套件。
 
@@ -48,15 +50,25 @@ python tools/ht_frame.py path/to/frame.bin
 
 ```text
 examples/          可直接运行的合成数据示例
+tests/             标准库离线回归测试
 docs/              分析文档、文档导航和工具说明
 docs/archive/      历史交接和阶段性研究记录
 tools/             分析模块、抓包工具和实验脚本
 tools/agent/       动态观测脚本源码及构建依赖
 CONTRIBUTING.md    贡献和验证方法
 LICENSE            研究用途许可
+requirements-analysis.txt  可选的抓包分析依赖
 ```
 
 历史交接文档保留在 archive，便于追溯结论；其中的个人目录、设备状态和待办事项不是当前用户的安装要求。
+
+## 验证
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+测试使用合成帧和临时创建的 ZIP，不包含真实 APK、账号或抓包。覆盖帧长度、压缩边界、载荷往返、APK 结构清点及字符串搜索；GitHub Actions 在 Windows/Linux 和 Python 3.10/3.13 上执行这组离线检查。
 
 ## 适用范围
 

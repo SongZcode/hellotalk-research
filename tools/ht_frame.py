@@ -1,7 +1,7 @@
 """ht_frame.py — HelloTalk ht_im/sock 帧编解码库（已实测）
 
 帧格式:
-  magic(4) | opcode(4) | uid(8,LE) | hdr_len(4,LE) | body_len(4,LE) | body
+  magic(4) | opcode(4) | uid(8,LE) | body_len(4,LE) | body
 
 body:
   - zlib.compress(json)                        → 普通业务帧
@@ -98,20 +98,30 @@ def body_of(raw: bytes, off: int = 20) -> bytes | None:
     return None
 
 
-def parse(raw: bytes) -> dict:
+def parse(raw: bytes, *, max_body_bytes: int = 1024 * 1024) -> dict:
+    if max_body_bytes <= 0:
+        raise ValueError("max_body_bytes must be positive")
     out = {"raw_len": len(raw)}
-    if len(raw) < 24:
+    if len(raw) < 20:
         out["error"] = "too short"
         return out
     out["magic"] = raw[0:4].hex()
     out["opcode"] = raw[4:8].hex()
     out["op_type"] = raw[4]
     out["uid"] = struct.unpack_from("<Q", raw, 8)[0]
-    out["hdr_len"] = struct.unpack_from("<I", raw, 16)[0]
-    out["body_len"] = struct.unpack_from("<I", raw, 20)[0]
+    out["body_len"] = struct.unpack_from("<I", raw, 16)[0]
     off = body_off(raw)
     out["body_off"] = off
     body = raw[off:]
+    if raw[:4] not in (MAGIC_UP, MAGIC_DN, MAGIC_PUSH):
+        out["error"] = "unknown magic"
+        return out
+    if out["body_len"] != len(body):
+        out["error"] = "body length mismatch"
+        return out
+    if len(body) > max_body_bytes:
+        out["error"] = "body exceeds limit"
+        return out
     if body[:1] == b"{":
         try:
             out["body"] = json.loads(body.decode("utf-8"))
@@ -122,7 +132,12 @@ def parse(raw: bytes) -> dict:
     if body[:2] in (b"\x78\x01", b"\x78\x9c", b"\x78\xda"):
         try:
             d = zlib.decompressobj()
-            txt = (d.decompress(body) + d.flush()).decode("utf-8")
+            expanded = d.decompress(body, max_body_bytes + 1)
+            if len(expanded) > max_body_bytes or d.unconsumed_tail:
+                raise ValueError("expanded body exceeds limit")
+            if not d.eof or d.unused_data:
+                raise ValueError("incomplete or trailing compressed data")
+            txt = expanded.decode("utf-8")
             out["body"] = json.loads(txt)
             out["body_raw"] = txt
             return out

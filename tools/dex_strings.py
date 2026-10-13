@@ -1,13 +1,12 @@
 """dex_strings.py — 直接从 APK 的 dex 里抽字符串（比扫 smali 快几十倍），找接口路径
 
-用法: python tools\\dex_strings.py [关键词...]
+用法: python tools/dex_strings.py --apk path/to/base.apk [关键词...]
 """
 import pathlib
 import re
 import sys
 import zipfile
-
-APK = pathlib.Path(r"<WORKDIR2>\samples\xapk\com.hellotalk.apk")
+import argparse
 STR_RE = re.compile(rb"[\x20-\x7e]{6,120}")
 DEFAULT_KEYS = ("member_privilege_center", "vip_experience_card", "vip_trial")
 
@@ -19,11 +18,17 @@ def iter_dex(apk: pathlib.Path):
                 yield n, z.read(n)
 
 
-def main():
-    keys = [k.encode() for k in (sys.argv[1:] or DEFAULT_KEYS)]
+def main(argv=None):
+    parser = argparse.ArgumentParser(description="Search printable ASCII fragments in local APK DEX entries")
+    parser.add_argument("--apk", required=True, type=pathlib.Path)
+    parser.add_argument("keywords", nargs="*")
+    args = parser.parse_args(argv)
+    if not args.apk.is_file():
+        parser.error("APK file does not exist")
+    keys = [k.encode() for k in (args.keywords or DEFAULT_KEYS)]
     hits = set()
     total = 0
-    for name, data in iter_dex(APK):
+    for name, data in iter_dex(args.apk):
         total += 1
         for m in STR_RE.finditer(data):
             s = m.group(0)

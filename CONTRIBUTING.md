@@ -13,10 +13,11 @@
 
 ```sh
 python examples/offline_frame.py
+python -m unittest discover -s tests -v
 python -m py_compile examples/offline_frame.py tools/ht_frame.py
 ```
 
-此验证只覆盖合成帧的载荷往返与相关文件语法，不代表整个协议实现或全部实验脚本已通过测试。
+测试覆盖合成帧的载荷往返、长度与压缩边界，以及临时 ZIP 的 APK 清点和 ASCII 片段扫描，不代表整个协议实现或全部实验脚本已通过测试。CI 使用 Windows/Linux、Python 3.10/3.13，无需安装第三方分析依赖。
 
 涉及本地抓包工具时，使用合成或经过脱敏的样本验证；请在 Pull Request 中记录命令、Python 版本和第三方依赖版本。
 
